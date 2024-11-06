@@ -31,6 +31,31 @@ struct MiniBaseballGame {
     }
     
     func printResult() {
+        if inputNumber.contains("0") || Set(inputNumber).count != answerNumber.count {
+            print("올바르지 않은 입력값입니다")
+            return
+        } else if inputNumber == answerNumber {
+            print("정답입니다!")
+            return
+        }
         
+        var strikes = 0, balls = 0
+        for i in 0 ..< answerNumber.count {
+            if inputNumber[i] == answerNumber[i] {
+                strikes += 1
+            } else if answerNumber.contains(inputNumber[i]) {
+                balls += 1
+            }
+        }
+        
+        if strikes != 0 && balls != 0 {
+            print("\(strikes)스트라이크 \(balls)볼")
+        } else if strikes == 0 && balls != 0 {
+            print("\(balls)볼")
+        } else if strikes != 0 && balls == 0 {
+            print("\(strikes)스트라이크")
+        } else {
+            print("Nothing")
+        }
     }
 }
