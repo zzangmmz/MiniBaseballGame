@@ -1,4 +1,4 @@
-// Level2
+// Level3
 import Foundation
 
 var game = MiniBaseballGame()
@@ -22,7 +22,7 @@ struct MiniBaseballGame {
     func makeAnswerNumber() -> [Character] {
         var numbers = [Int]()
         while true {
-            numbers = [Int.random(in: 1...9), Int.random(in: 1...9), Int.random(in: 1...9)]
+            numbers = [Int.random(in: 1...9), Int.random(in: 0...9), Int.random(in: 0...9)]
             if Set(numbers).count == 3 {
                 break
             }
@@ -31,7 +31,7 @@ struct MiniBaseballGame {
     }
     
     func printResult() {
-        if inputNumber.contains("0") || Set(inputNumber).count != answerNumber.count {
+        if Set(inputNumber).count != answerNumber.count {
             print("올바르지 않은 입력값입니다")
             return
         } else if inputNumber == answerNumber {
