@@ -1,14 +1,36 @@
-// Level3
+// Level4
 import Foundation
 
 var game = MiniBaseballGame()
-game.play()
+game.start()
+
 
 struct MiniBaseballGame {
     private var inputNumber = [Character]()
     private var answerNumber = [Character]()
     
+    func start() {
+        while true {
+            print("환영합니다! 원하시는 번호를 입력해주세요")
+            print("1. 게임 시작하기  2. 게임 기록 보기  3. 종료하기")
+            let choice = readLine().map { Character($0) }
+            
+            switch choice {
+            case "1":
+                game.play()
+            case "2":
+                game.printLog()
+            case "3":
+                print("\n< 숫자 야구 게임을 종료합니다 >")
+                return
+            default:
+                print("\n올바른 숫자를 입력해주세요!")
+            }
+        }
+    }
+    
     mutating func play() {
+        print("\n< 게임을 시작합니다 >")
         print("숫자를 입력하세요")
         guard let input = Int(readLine()!) else {
             print("올바르지 않은 입력값입니다")
@@ -57,5 +79,9 @@ struct MiniBaseballGame {
         } else {
             print("Nothing")
         }
+    }
+    
+    func printLog() {
+        
     }
 }
