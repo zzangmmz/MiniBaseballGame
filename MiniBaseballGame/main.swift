@@ -1,25 +1,36 @@
-// Level1
+// Level2
 import Foundation
 
 var game = MiniBaseballGame()
 game.play()
 
 struct MiniBaseballGame {
-    private var inputNumbers = [Int]()
-    private var answerNumbers = [Int]()
-    
-    mutating func makeAnswerNumbers() -> [Int] {
-        return [Int.random(in: 1...9), Int.random(in: 1...9), Int.random(in: 1...9)]
-    }
+    private var inputNumber = [Character]()
+    private var answerNumber = [Character]()
     
     mutating func play() {
-        print("1에서 9까지의 서로 다른 임의의 수 3개를 입력하세요.")
-        inputNumbers = readLine()!.split(separator: " ").map { (Int(String($0))!) }
-        answerNumbers = makeAnswerNumbers()
+        print("숫자를 입력하세요")
+        guard let input = Int(readLine()!) else {
+            print("올바르지 않은 입력값입니다")
+            return
+        }
+        inputNumber = String(input).map { $0 }
+        answerNumber = makeAnswerNumber()
+        printResult()
+    }
+    
+    func makeAnswerNumber() -> [Character] {
+        var numbers = [Int]()
+        while true {
+            numbers = [Int.random(in: 1...9), Int.random(in: 1...9), Int.random(in: 1...9)]
+            if Set(numbers).count == 3 {
+                break
+            }
+        }
+        return numbers.map { Character(String($0)) }
+    }
+    
+    func printResult() {
         
-        print(inputNumbers.contains(answerNumbers) ? "\n정답입니다!" : "\n오답입니다...")
-        // 정답 확인용
-        print("입력: \(inputNumbers)")
-        print("정답: \(answerNumbers)")
     }
 }
