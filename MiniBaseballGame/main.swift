@@ -1,11 +1,15 @@
-//
-//  main.swift
-//  MiniBaseballGame
-//
-//  Created by 이명지 on 11/6/24.
-//
-
+// Level1
 import Foundation
 
-print("Hello, World!")
-
+struct MiniBaseballGame {
+    private var inputNumbers = [Int]()
+    private var answerNumbers = [Int]()
+    
+    mutating func makeAnswerNumbers() -> [Int] {
+        return [Int.random(in: 1...9), Int.random(in: 1...9), Int.random(in: 1...9)]
+    }
+    
+    func play() {
+        
+    }
+}
