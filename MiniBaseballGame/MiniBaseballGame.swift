@@ -20,7 +20,7 @@ final class MiniBaseballGame {
             case "1":
                 game.play()
             case "2":
-                LogDataManager.shared.showLogs()
+                LogDataManager.shared.printLogs()
             case "3":
                 print(GuideDescription.end.description)
                 return
