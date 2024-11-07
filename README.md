@@ -14,13 +14,25 @@
 
 개발 환경
 ------------
-`xCode` `Swift6` `UIKit` `Command Line Tool`
+`xCode` `Swift6` `UIKit` `Command Line Tool`
 
 
 
 협업 툴
 ------------
 ![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+
+
+실행화면
+------------
+
+| 첫 화면 | 게임 시작하기 |
+| --- | --- |
+|![스크린샷 2024-11-07 오전 10 31 57](https://github.com/user-attachments/assets/28130776-7da1-4b00-8089-01e5c6a20610)|![스크린샷 2024-11-07 오전 10 45 25](https://github.com/user-attachments/assets/f91ed915-96a2-4d30-81ae-c12eab31522d)|
+
+| 게임 기록 보기 | 종료하기 |
+| --- | --- |
+|![스크린샷 2024-11-07 오전 10 45 32](https://github.com/user-attachments/assets/22587540-9f46-4d36-b052-07343f65b686)|![스크린샷 2024-11-07 오전 10 33 32](https://github.com/user-attachments/assets/b219c338-c6ca-4ece-b703-8a55934dd47f)|
 
 
 커밋 컨벤션
