@@ -41,12 +41,14 @@ struct MiniBaseballGame {
             tries += 1
             print("숫자를 입력하세요")
             
+            // 정수가 아닌 값이 입력됐는지 검사
             guard let input = Int(readLine()!) else {
                 print("올바르지 않은 입력값입니다\n")
                 continue
             }
             inputNumber = String(input).map { $0 }
             
+            // 자릿수 맞는지 검사
             if Set(inputNumber).count != answerNumber.count {
                 print("올바르지 않은 입력값입니다\n")
                 continue
@@ -59,6 +61,7 @@ struct MiniBaseballGame {
         }
     }
     
+    // 랜덤 3자리 숫자 생성 함수
     func makeAnswerNumber() -> [Character] {
         var numbers = [Int]()
         while Set(numbers).count != 3 {
@@ -67,6 +70,7 @@ struct MiniBaseballGame {
         return numbers.map { Character(String($0)) }
     }
     
+    // 볼, 스트라이크 힌트 출력 함수
     func printHints() {
         var strikes = 0, balls = 0
         for i in 0 ..< answerNumber.count {
@@ -88,6 +92,7 @@ struct MiniBaseballGame {
         }
     }
     
+    // 게임 기록 출력 함수
     func printLog() {
         if gameLogs.isEmpty {
             print("게임 기록이 없습니다.\n")
