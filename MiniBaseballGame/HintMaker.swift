@@ -6,6 +6,7 @@ final class HintMaker {
         self.balls = 0
         self.strikes = 0
         
+        // 볼, 스트라이크 계산
         for i in 0 ..< answerNumber.count {
             if inputNumber[i] == answerNumber[i] {
                 self.strikes += 1

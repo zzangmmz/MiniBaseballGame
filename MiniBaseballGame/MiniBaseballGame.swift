@@ -51,7 +51,9 @@ final class MiniBaseballGame {
             if Set(inputNumber).count != answerNumber.count {
                 print(ErrorDescription.wrongInput.description)
                 continue
-            } else if inputNumber == answerNumber {
+            }
+            // 정답 맞춘 경우
+            else if inputNumber == answerNumber {
                 LogDataManager.shared.updateLogs(rounds, tries)
                 print(GuideDescription.correct.description)
                 break
