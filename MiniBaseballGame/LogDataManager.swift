@@ -17,7 +17,7 @@ final class LogDataManager {
             print(ErrorDescription.emptyLog.description)
             return
         }
-        logs.forEach { print(GuideDescription.log(rounds: $0.key, tries: $0.value).description) }
+        logs.sorted { $0.key < $1.key }.forEach { print(GuideDescription.log(rounds: $0.key, tries: $0.value).description) }
         print()
     }
 }
