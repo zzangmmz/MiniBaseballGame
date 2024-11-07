@@ -14,7 +14,7 @@ final class LogDataManager {
     // 기록 보기
     func showLogs() {
         guard !logs.isEmpty else {
-            ErrorDescription.emptyLog.printError()
+            print(ErrorDescription.emptyLog.description)
             return
         }
         logs.forEach { print("\($0.key)번째 게임 : 시도 횟수 - \($0.value)") }

@@ -13,7 +13,7 @@ final class MiniBaseballGame {
     
     func start() {
         while true {
-            GuideDescription.greeting.printGuide()
+            print(GuideDescription.greeting.description)
             let choice = readLine()
             
             switch choice {
@@ -22,10 +22,10 @@ final class MiniBaseballGame {
             case "2":
                 LogDataManager.shared.showLogs()
             case "3":
-                GuideDescription.end.printGuide()
+                print(GuideDescription.end.description)
                 return
             default:
-                ErrorDescription.wrongChoice.printError()
+                print(ErrorDescription.wrongChoice.description)
             }
         }
     }
@@ -34,30 +34,32 @@ final class MiniBaseballGame {
         var tries = 0
         rounds += 1
         answerNumber = makeAnswerNumber()
-        let ballAndStrike = BallAndStrike()
         
-        GuideDescription.start.printGuide()
+        print(GuideDescription.start.description)
         while true {
             tries += 1
-            GuideDescription.input.printGuide()
+            print(GuideDescription.enterInput.description)
             
             // 정수가 아닌 값이 입력됐는지 검사
             guard let input = Int(readLine()!) else {
-                ErrorDescription.wrongInput.printError()
+                print(ErrorDescription.wrongInput.description)
                 continue
             }
             inputNumber = String(input).map { $0 }
             
             // 자릿수 맞는지 검사
             if Set(inputNumber).count != answerNumber.count {
-                ErrorDescription.wrongInput.printError()
+                print(ErrorDescription.wrongInput.description)
                 continue
             } else if inputNumber == answerNumber {
                 LogDataManager.shared.updateLogs(rounds, tries)
-                GuideDescription.correct.printGuide()
+                print(GuideDescription.correct.description)
                 break
             }
-            ballAndStrike.printHints(inputNumber, answerNumber)
+            
+            // 힌트 출력
+            let hint = HintMaker(inputNumber, answerNumber)
+            hint.printHints()
         }
     }
     
@@ -69,26 +71,4 @@ final class MiniBaseballGame {
         }
         return numbers.map { Character(String($0)) }
     }
-    
-//    // 볼, 스트라이크 힌트 출력 함수
-//    func printHints() {
-//        var strikes = 0, balls = 0
-//        for i in 0 ..< answerNumber.count {
-//            if inputNumber[i] == answerNumber[i] {
-//                strikes += 1
-//            } else if answerNumber.contains(inputNumber[i]) {
-//                balls += 1
-//            }
-//        }
-//        
-//        if strikes != 0 && balls != 0 {
-//            print("\(strikes)스트라이크 \(balls)볼\n")
-//        } else if strikes == 0 && balls != 0 {
-//            print("\(balls)볼\n")
-//        } else if strikes != 0 && balls == 0 {
-//            print("\(strikes)스트라이크\n")
-//        } else {
-//            print("Nothing\n")
-//        }
-//    }
 }
