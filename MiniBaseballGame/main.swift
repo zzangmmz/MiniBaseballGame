@@ -34,8 +34,7 @@ struct MiniBaseballGame {
     mutating func play() {
         var tries = 0
         rounds += 1
-//        answerNumber = makeAnswerNumber()
-        answerNumber = ["4", "5", "6"]
+        answerNumber = makeAnswerNumber()
         
         print("\n< 게임을 시작합니다 >")
         while true {
@@ -62,11 +61,8 @@ struct MiniBaseballGame {
     
     func makeAnswerNumber() -> [Character] {
         var numbers = [Int]()
-        while true {
+        while Set(numbers).count != 3 {
             numbers = [Int.random(in: 1...9), Int.random(in: 0...9), Int.random(in: 0...9)]
-            if Set(numbers).count == 3 {
-                break
-            }
         }
         return numbers.map { Character(String($0)) }
     }
