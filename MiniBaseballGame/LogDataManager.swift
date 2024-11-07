@@ -17,7 +17,7 @@ final class LogDataManager {
             print(ErrorDescription.emptyLog.description)
             return
         }
-        logs.forEach { print("\($0.key)번째 게임 : 시도 횟수 - \($0.value)") }
+        logs.forEach { print(GuideDescription.log(rounds: $0.key, tries: $0.value).description) }
         print()
     }
 }
