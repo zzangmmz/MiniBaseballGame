@@ -1,14 +1,14 @@
 final class LogDataManager {
     static let shared = LogDataManager()
-    private var logs: [Int: Int]
+    private var logs: [Int]
     
     private init() {
-        self.logs = [:]
+        self.logs = []
     }
     
     // 기록 업데이트
-    func updateLogs(_ rounds: Int, _ tries: Int) {
-        self.logs[rounds] = tries
+    func updateLogs(_ tries: Int) {
+        self.logs.append(tries)
     }
     
     // 기록 보기
@@ -17,8 +17,7 @@ final class LogDataManager {
             print(ErrorDescription.emptyLog.description)
             return
         }
-        logs.sorted { $0.key < $1.key }
-            .forEach { print(GuideDescription.log(rounds: $0.key, tries: $0.value).description) }
+        logs.enumerated().forEach { print(GuideDescription.log(rounds: $0+1, tries: $1).description) }
         print()
     }
 }

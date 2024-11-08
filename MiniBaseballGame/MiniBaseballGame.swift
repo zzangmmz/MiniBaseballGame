@@ -1,14 +1,10 @@
 final class MiniBaseballGame {
     private var inputNumber: [Character]
     private var answerNumber: [Character]
-    private var gameLogs: [Int: Int]
-    private var rounds: Int
     
     init() {
         self.inputNumber = []
         self.answerNumber = []
-        self.gameLogs = [:]
-        self.rounds = 0
     }
     
     func start() {
@@ -32,7 +28,6 @@ final class MiniBaseballGame {
     
     func play() {
         var tries = 0
-        rounds += 1
         answerNumber = makeAnswerNumber()
         
         print(GuideDescription.start.description)
@@ -54,7 +49,7 @@ final class MiniBaseballGame {
             }
             // 정답 맞춘 경우
             else if inputNumber == answerNumber {
-                LogDataManager.shared.updateLogs(rounds, tries)
+                LogDataManager.shared.updateLogs(tries)
                 print(GuideDescription.correct.description)
                 break
             }
