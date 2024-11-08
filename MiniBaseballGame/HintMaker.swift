@@ -1,6 +1,7 @@
 final class HintMaker {
     private var balls: Int
     private var strikes: Int
+    private var hint: HintDescription
     
     init(_ inputNumber: [Character], _ answerNumber: [Character]) {
         self.balls = 0
@@ -14,17 +15,24 @@ final class HintMaker {
                 self.balls += 1
             }
         }
+        
+        if strikes != 0 && balls != 0 {
+            self.hint = .both(ball: balls, strike: strikes)
+        } else if strikes == 0 && balls != 0 {
+            self.hint = .onlyBall(ball: balls)
+        } else if strikes != 0 && balls == 0 {
+            self.hint = .onlyStrike(strike: strikes)
+        } else {
+            self.hint = .nothing
+        }
     }
     
-    func printHints() {
-        if strikes != 0 && balls != 0 {
-            print("\(strikes)스트라이크 \(balls)볼\n")
-        } else if strikes == 0 && balls != 0 {
-            print("\(balls)볼\n")
-        } else if strikes != 0 && balls == 0 {
-            print("\(strikes)스트라이크\n")
-        } else {
-            print("Nothing\n")
+    func printHint() {
+        switch self.hint {
+        case .both: print(self.hint.description)
+        case .onlyBall: print(self.hint.description)
+        case .onlyStrike: print(self.hint.description)
+        default: print(self.hint.description)
         }
     }
 }

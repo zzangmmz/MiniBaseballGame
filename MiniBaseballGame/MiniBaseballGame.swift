@@ -61,7 +61,7 @@ final class MiniBaseballGame {
             
             // 힌트 출력
             let hint = HintMaker(inputNumber, answerNumber)
-            hint.printHints()
+            hint.printHint()
         }
     }
     
