@@ -1,11 +1,6 @@
 final class MiniBaseballGame {
-    private var inputNumber: [Character]
-    private var answerNumber: [Character]
-    
-    init() {
-        self.inputNumber = []
-        self.answerNumber = []
-    }
+    private var inputNumber: [Character] = []
+    private var answerNumber: [Character] = []
     
     func start() {
         while true {
