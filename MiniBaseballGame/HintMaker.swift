@@ -28,11 +28,6 @@ final class HintMaker {
     }
     
     func printHint() {
-        switch self.hint {
-        case .both: print(self.hint.description)
-        case .onlyBall: print(self.hint.description)
-        case .onlyStrike: print(self.hint.description)
-        default: print(self.hint.description)
-        }
+        print(self.hint.description)
     }
 }
