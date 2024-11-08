@@ -1,18 +1,16 @@
 final class HintMaker {
-    private var balls: Int
-    private var strikes: Int
     private var hint: HintDescription
     
     init(_ inputNumber: [Character], _ answerNumber: [Character]) {
-        self.balls = 0
-        self.strikes = 0
+        var balls = 0
+        var strikes = 0
         
         // 볼, 스트라이크 계산
         for i in 0 ..< answerNumber.count {
             if inputNumber[i] == answerNumber[i] {
-                self.strikes += 1
+                strikes += 1
             } else if answerNumber.contains(inputNumber[i]) {
-                self.balls += 1
+                balls += 1
             }
         }
         
